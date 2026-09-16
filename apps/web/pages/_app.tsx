@@ -17,6 +17,7 @@ function MyApp(props: AppProps) {
   return (
     <SessionProvider session={pageProps.session ?? undefined}>
       <WebPushProvider>
+        {/* @ts-expect-error CacheProvider returns ReactNode, invalid JSX with @types/react 18.0 */}
         <CacheProvider>
           {Component.PageWrapper ? <Component.PageWrapper {...props} /> : <Component {...pageProps} />}
         </CacheProvider>

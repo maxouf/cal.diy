@@ -27,6 +27,7 @@ export function Providers({ isEmbed, children, country }: ProvidersProps) {
         <TrpcProvider>
           <ToastProvider position="bottom-center">
             {!isEmbed && !isBookingPage && <NotificationSoundHandler />}
+            {/* @ts-expect-error CacheProvider returns ReactNode, invalid JSX with @types/react 18.0 */}
             <CacheProvider>
               <WebPushProvider>{children}</WebPushProvider>
             </CacheProvider>
