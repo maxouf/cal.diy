@@ -29,6 +29,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Copy env (compose needs a .env)
+        run: grep -o '^[^#]*' .env.example > .env
+
       - name: Start database
         run: docker compose up -d database
 
